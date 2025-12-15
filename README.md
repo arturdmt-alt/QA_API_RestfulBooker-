@@ -1,5 +1,7 @@
 # RestfulBooker API Testing Framework
 
+![API Tests](https://github.com/arturdmt-alt/QA_API_RestfulBooker-/actions/workflows/tests.yml/badge.svg)
+
 Automated API testing framework for RestfulBooker using Python, pytest, and requests.
 
 ## Features
