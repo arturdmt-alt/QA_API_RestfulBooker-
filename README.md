@@ -85,8 +85,12 @@ pytest tests/test_auth.py -v
 
 All tests passing: 11/11
 
+![HTML Test Report](screenshots/html-report.jpg)
+
 View HTML report: `reports/report.html`
 
 ## Author
 
 Artur - QA Automation Engineer
+
+
