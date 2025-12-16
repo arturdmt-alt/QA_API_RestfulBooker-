@@ -49,7 +49,7 @@ QA_API_RestfulBooker/
 
 1. Clone the repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/arturdmt-alt/QA_API_RestfulBooker-.git
 cd QA_API_RestfulBooker
 ```
 
