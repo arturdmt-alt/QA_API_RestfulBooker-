@@ -3,8 +3,10 @@ from models.booking_model import BookingModel
 
 
 class TestBookings:
-    """Tests de operaciones CRUD de reservas"""
+    """Tests de operaciones CRUD de reservas con markers"""
     
+    @pytest.mark.smoke
+    @pytest.mark.critical
     def test_create_booking(self, booking_api):
         """Verifica creación de reserva"""
         booking_data = BookingModel.create_default()
@@ -14,6 +16,7 @@ class TestBookings:
         assert "bookingid" in response.json()
         assert response.json()["booking"]["firstname"] == "John"
     
+    @pytest.mark.smoke
     def test_get_booking(self, booking_api):
         """Verifica obtener reserva por ID"""
         # Primero crear una reserva
@@ -27,6 +30,7 @@ class TestBookings:
         assert response.status_code == 200
         assert response.json()["firstname"] == "John"
     
+    @pytest.mark.regression
     def test_get_all_bookings(self, booking_api):
         """Verifica obtener todas las reservas"""
         response = booking_api.get_all_bookings()
@@ -35,6 +39,7 @@ class TestBookings:
         assert isinstance(response.json(), list)
         assert len(response.json()) > 0
     
+    @pytest.mark.regression
     def test_update_booking(self, booking_api, auth_token):
         """Verifica actualización completa de reserva"""
         # Crear reserva
@@ -57,6 +62,7 @@ class TestBookings:
         assert response.json()["firstname"] == "Jane"
         assert response.json()["totalprice"] == 200
     
+    @pytest.mark.regression
     def test_partial_update_booking(self, booking_api, auth_token):
         """Verifica actualización parcial de reserva"""
         # Crear reserva
@@ -71,6 +77,8 @@ class TestBookings:
         assert response.status_code == 200
         assert response.json()["firstname"] == "UpdatedName"
     
+    @pytest.mark.smoke
+    @pytest.mark.critical
     def test_delete_booking(self, booking_api, auth_token):
         """Verifica eliminación de reserva"""
         # Crear reserva
@@ -83,6 +91,7 @@ class TestBookings:
         
         assert response.status_code == 201
     
+    @pytest.mark.negative
     def test_create_booking_missing_fields(self, booking_api):
         """Verifica que falla al crear reserva sin campos obligatorios"""
         invalid_data = {
@@ -93,12 +102,15 @@ class TestBookings:
         
         assert response.status_code == 500
     
+    @pytest.mark.negative
     def test_get_nonexistent_booking(self, booking_api):
         """Verifica manejo de reserva inexistente"""
         response = booking_api.get_booking(999999)
         
         assert response.status_code == 404
     
+    @pytest.mark.negative
+    @pytest.mark.security
     def test_delete_without_token(self, booking_api):
         """Verifica que falla al borrar sin token"""
         # Crear reserva primero
@@ -110,7 +122,5 @@ class TestBookings:
         response = booking_api.delete_booking(booking_id, "")
         
         assert response.status_code == 403
-        
-        
         
         
