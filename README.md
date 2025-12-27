@@ -2,7 +2,7 @@
 
 [![API Tests](https://github.com/arturdmt-alt/QA_API_RestfulBooker-/actions/workflows/tests.yml/badge.svg)](https://github.com/arturdmt-alt/QA_API_RestfulBooker-/actions/workflows/tests.yml)
 
-Automated API testing framework for **RestfulBooker** built with **Python, pytest and requests**, designed to demonstrate a clean, scalable and professional QA Automation approach.
+Automated API testing framework for RestfulBooker built with Python, pytest and requests.
 
 ---
 
@@ -127,24 +127,6 @@ The pipeline:
 
 ---
 
-## Key Learnings
-
-Working on this project helped me develop:
-
-* **Schema validation** with Pydantic for strict API contract testing
-* **CI/CD configuration** and troubleshooting in GitHub Actions
-* **Modular architecture** design for maintainable test frameworks
-* **Balance** between comprehensive coverage and code simplicity
-
-These skills directly translate to real-world QA automation in Agile teams.
-
----
-
-## Notes
-
-This framework focuses on clarity, maintainability and realistic QA practices rather than artificial complexity. It is structured to be easily extended with additional endpoints, environments or validations.
-
----
 
 ## Author
 
@@ -153,5 +135,3 @@ QA Automation Engineer
 
 [LinkedIn](https://www.linkedin.com/in/arturdmytriyev/)  
 [GitHub](https://github.com/arturdmt-alt)
-
-
